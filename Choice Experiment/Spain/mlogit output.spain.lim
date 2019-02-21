@@ -1,0 +1,263 @@
+|-> RESET
+O---------------------------------------------------------O
+| NLOGIT 5  (tm)                 Nov 02, 2016, 11:18:24PM |
+| Econometric Software, Inc.     Copyright 1986-2012      |
+| Plainview, New York 11803                               |
+| Registered to                  Joanna Karavolias        |
+|                                University of Florida    |
+| Registration Number            1206-0012703-LSL         |
+O---------------------------------------------------------O
+-------Initializing NLOGIT Version 5  (May 1, 2012)--------
+-----------------------------------------------------------
+
+|-> reset$
+|-> import; file="E:\GM Project copy\Choice Experiment\spain\spain_Monsanto.csv"$
+Last observation read from data file was   11070
+Error    535: Warning: Name Q7_1_VIT was in use. Replaced with X89
+Error    535: Warning: Name LOCATION was in use. Replaced with X116
+Error    535: Warning: Name LOCATION was in use. Replaced with X117
+|-> create; CDProd = total_CD * producer$
+|-> create; CDPrice = total_CD * price$
+|-> create; TechPri= total_te * price$
+|-> create; NepPri= total_ne * price$
+|-> create; monsanto=producer=1$
+|-> create; sfc=producer=2$
+|-> create; public=producer=3$
+|-> create; nobio=producer=4$
+|-> mlogit; lhs=choice
+    	; choices= a,b,c
+    	; rhs=price, monsanto,sfc,public, seeds, CDProd, cdprice, techpri,neppri
+    	; title= Multinomial Logit for US Monsanto$
+Normal exit:  10 iterations. Status=0, F=    6860.121
+
+-----------------------------------------------------------------------------
+Binary Logit Model for Binary Choice
+Dependent variable               CHOICE
+Log likelihood function     -6860.12111
+Restricted log likelihood   -7001.73454
+Chi squared [   8 d.f.]       283.22685
+Significance level               .00000
+McFadden Pseudo R-squared      .0202255
+Estimation based on N =  11070, K =   9
+Inf.Cr.AIC  =  13738.2 AIC/N =    1.241
+Model estimated: Nov 02, 2016, 23:18:47
+Corrected for Choice Based Sampling
+Hosmer-Lemeshow chi-squared = 886.16960
+P-value=  .00000 with deg.fr. =       8
+--------+--------------------------------------------------------------------
+        |                  Standard            Prob.      95% Confidence
+  CHOICE|  Coefficient       Error       z    |z|>Z*         Interval
+--------+--------------------------------------------------------------------
+   PRICE|    -.62307***      .08274    -7.53  .0000     -.78523   -.46091
+MONSANTO|     .63609***      .15149     4.20  .0000      .33917    .93301
+     SFC|    1.26800***      .10865    11.67  .0000     1.05504   1.48096
+  PUBLIC|    -.32152***      .07909    -4.07  .0000     -.47654   -.16650
+   SEEDS|     .12788**       .05809     2.20  .0277      .01403    .24173
+  CDPROD|     .01128***      .00066    16.97  .0000      .00997    .01258
+ CDPRICE|    -.01838***      .00154   -11.91  .0000     -.02140   -.01535
+ TECHPRI|     .01455***      .00139    10.50  .0000      .01183    .01726
+  NEPPRI|    -.00120         .00140     -.86  .3911     -.00396    .00155
+--------+--------------------------------------------------------------------
+Note: ***, **, * ==>  Significance at 1%, 5%, 10% level.
+-----------------------------------------------------------------------------
+
+|-> reset$
+|-> import; file="E:\GM Project copy\Choice Experiment\spain\spain_emotional.csv"$
+Last observation read from data file was   11070
+Error    535: Warning: Name Q7_1_VIT was in use. Replaced with X89
+Error    535: Warning: Name LOCATION was in use. Replaced with X116
+Error    535: Warning: Name LOCATION was in use. Replaced with X117
+|-> create; CDProd = total_CD * producer$
+|-> create; CDPrice = total_CD * price$
+|-> create; TechPri= total_te * price$
+|-> create; NepPri= total_ne * price$
+|-> create; monsanto=producer=1$
+|-> create; sfc=producer=2$
+|-> create; public=producer=3$
+|-> create; nobio=producer=4$
+|-> mlogit; lhs=choice
+    	; choices= a,b,c
+    	; rhs=price, monsanto,sfc,public , seeds, CDProd, cdprice, techpri,neppri $
+Normal exit:  10 iterations. Status=0, F=    6643.983
+
+-----------------------------------------------------------------------------
+Binary Logit Model for Binary Choice
+Dependent variable               CHOICE
+Log likelihood function     -6643.98265
+Restricted log likelihood   -6988.72842
+Chi squared [   8 d.f.]       689.49156
+Significance level               .00000
+McFadden Pseudo R-squared      .0493288
+Estimation based on N =  11070, K =   9
+Inf.Cr.AIC  =  13306.0 AIC/N =    1.202
+Model estimated: Nov 02, 2016, 23:19:07
+Corrected for Choice Based Sampling
+Hosmer-Lemeshow chi-squared = 698.47322
+P-value=  .00000 with deg.fr. =       8
+--------+--------------------------------------------------------------------
+        |                  Standard            Prob.      95% Confidence
+  CHOICE|  Coefficient       Error       z    |z|>Z*         Interval
+--------+--------------------------------------------------------------------
+   PRICE|    -.66060***      .09065    -7.29  .0000     -.83827   -.48292
+MONSANTO|     .50034***      .15334     3.26  .0011      .19980    .80087
+     SFC|     .87594***      .10748     8.15  .0000      .66528   1.08660
+  PUBLIC|    -.74238***      .07910    -9.39  .0000     -.89742   -.58735
+   SEEDS|     .14791**       .06107     2.42  .0154      .02821    .26761
+  CDPROD|     .01318***      .00068    19.44  .0000      .01185    .01451
+ CDPRICE|    -.02397***      .00153   -15.67  .0000     -.02697   -.02098
+ TECHPRI|     .01359***      .00164     8.29  .0000      .01038    .01681
+  NEPPRI|     .00409***      .00144     2.84  .0045      .00127    .00691
+--------+--------------------------------------------------------------------
+Note: ***, **, * ==>  Significance at 1%, 5%, 10% level.
+-----------------------------------------------------------------------------
+
+|-> reset$
+|-> import; file="E:\GM Project copy\Choice Experiment\spain\spain_simple.csv"$
+Last observation read from data file was   11070
+Error    535: Warning: Name Q7_1_VIT was in use. Replaced with X89
+Error    535: Warning: Name LOCATION was in use. Replaced with X116
+Error    535: Warning: Name LOCATION was in use. Replaced with X117
+|-> create; CDProd = total_CD * producer$
+|-> create; CDPrice = total_CD * price$
+|-> create; TechPri= total_te * price$
+|-> create; NepPri= total_ne * price$
+|-> create; monsanto=producer=1$
+|-> create; sfc=producer=2$
+|-> create; public=producer=3$
+|-> create; nobio=producer=4$
+|-> mlogit; lhs=choice
+    	; choices= a,b,c
+    	; rhs=price, monsanto,sfc,public, seeds, CDProd, cdprice, techpri,neppri $
+Normal exit:  10 iterations. Status=0, F=    6673.258
+
+-----------------------------------------------------------------------------
+Binary Logit Model for Binary Choice
+Dependent variable               CHOICE
+Log likelihood function     -6673.25799
+Restricted log likelihood   -6988.72842
+Chi squared [   8 d.f.]       630.94087
+Significance level               .00000
+McFadden Pseudo R-squared      .0451399
+Estimation based on N =  11070, K =   9
+Inf.Cr.AIC  =  13364.5 AIC/N =    1.207
+Model estimated: Nov 02, 2016, 23:19:27
+Corrected for Choice Based Sampling
+Hosmer-Lemeshow chi-squared = 786.06510
+P-value=  .00000 with deg.fr. =       8
+--------+--------------------------------------------------------------------
+        |                  Standard            Prob.      95% Confidence
+  CHOICE|  Coefficient       Error       z    |z|>Z*         Interval
+--------+--------------------------------------------------------------------
+   PRICE|    -.50387***      .08166    -6.17  .0000     -.66392   -.34382
+MONSANTO|     .62530***      .15376     4.07  .0000      .32393    .92667
+     SFC|     .95671***      .10576     9.05  .0000      .74942   1.16400
+  PUBLIC|    -.76395***      .07905    -9.66  .0000     -.91888   -.60902
+   SEEDS|    -.02016         .05983     -.34  .7362     -.13743    .09711
+  CDPROD|     .01313***      .00067    19.56  .0000      .01181    .01444
+ CDPRICE|    -.01819***      .00150   -12.12  .0000     -.02113   -.01525
+ TECHPRI|     .01296***      .00132     9.83  .0000      .01037    .01554
+  NEPPRI|    -.00180         .00149    -1.21  .2270     -.00472    .00112
+--------+--------------------------------------------------------------------
+Note: ***, **, * ==>  Significance at 1%, 5%, 10% level.
+-----------------------------------------------------------------------------
+
+|-> reset$
+|-> import; file="E:\GM Project copy\Choice Experiment\spain\spain_benefit.csv"$
+Last observation read from data file was   11070
+Error    535: Warning: Name Q7_1_VIT was in use. Replaced with X89
+Error    535: Warning: Name LOCATION was in use. Replaced with X116
+Error    535: Warning: Name LOCATION was in use. Replaced with X117
+|-> create; CDProd = total_CD * producer$
+|-> create; CDPrice = total_CD * price$
+|-> create; TechPri= total_te * price$
+|-> create; NepPri= total_ne * price$
+|-> create; monsanto=producer=1$
+|-> create; sfc=producer=2$
+|-> create; public=producer=3$
+|-> create; nobio=producer=4$
+|-> mlogit; lhs=choice
+    	; choices= a,b,c
+    	; rhs=price, monsanto,sfc,public, seeds, CDProd, cdprice, techpri,neppri $
+Normal exit:  11 iterations. Status=0, F=    6483.842
+
+-----------------------------------------------------------------------------
+Binary Logit Model for Binary Choice
+Dependent variable               CHOICE
+Log likelihood function     -6483.84242
+Restricted log likelihood   -6968.96939
+Chi squared [   8 d.f.]       970.25396
+Significance level               .00000
+McFadden Pseudo R-squared      .0696124
+Estimation based on N =  11070, K =   9
+Inf.Cr.AIC  =  12985.7 AIC/N =    1.173
+Model estimated: Nov 02, 2016, 23:19:47
+Corrected for Choice Based Sampling
+Hosmer-Lemeshow chi-squared = 502.55909
+P-value=  .00000 with deg.fr. =       8
+--------+--------------------------------------------------------------------
+        |                  Standard            Prob.      95% Confidence
+  CHOICE|  Coefficient       Error       z    |z|>Z*         Interval
+--------+--------------------------------------------------------------------
+   PRICE|    -.66416***      .11281    -5.89  .0000     -.88526   -.44307
+MONSANTO|     .48533***      .15674     3.10  .0020      .17812    .79254
+     SFC|     .62841***      .11047     5.69  .0000      .41188    .84493
+  PUBLIC|    -.84775***      .08114   -10.45  .0000    -1.00678   -.68873
+   SEEDS|     .22267***      .06308     3.53  .0004      .09904    .34630
+  CDPROD|     .01326***      .00070    18.88  .0000      .01188    .01464
+ CDPRICE|    -.01767***      .00167   -10.56  .0000     -.02094   -.01439
+ TECHPRI|     .01667***      .00231     7.22  .0000      .01215    .02120
+  NEPPRI|    -.00378**       .00160    -2.37  .0178     -.00691   -.00065
+--------+--------------------------------------------------------------------
+Note: ***, **, * ==>  Significance at 1%, 5%, 10% level.
+-----------------------------------------------------------------------------
+
+|-> reset$
+|-> import; file="E:\GM Project copy\Choice Experiment\spain\spain_control.csv"$
+Last observation read from data file was   11070
+Error    535: Warning: Name Q7_1_VIT was in use. Replaced with X89
+Error    535: Warning: Name LOCATION was in use. Replaced with X116
+Error    535: Warning: Name LOCATION was in use. Replaced with X117
+|-> create; CDProd = total_CD * producer$
+|-> create; CDPrice = total_CD * price$
+|-> create; TechPri= total_te * price$
+|-> create; NepPri= total_ne * price$
+|-> create; monsanto=producer=1$
+|-> create; sfc=producer=2$
+|-> create; public=producer=3$
+|-> create; nobio=producer=4$
+|-> mlogit; lhs=choice
+    	; choices= a,b,c
+    	; rhs=price, monsanto,sfc,public, seeds, CDProd, cdprice, techpri,neppri $
+Normal exit:   9 iterations. Status=0, F=    6489.288
+
+-----------------------------------------------------------------------------
+Binary Logit Model for Binary Choice
+Dependent variable               CHOICE
+Log likelihood function     -6489.28843
+Restricted log likelihood   -7001.73454
+Chi squared [   8 d.f.]      1024.89221
+Significance level               .00000
+McFadden Pseudo R-squared      .0731885
+Estimation based on N =  11070, K =   9
+Inf.Cr.AIC  =  12996.6 AIC/N =    1.174
+Model estimated: Nov 02, 2016, 23:20:06
+Corrected for Choice Based Sampling
+Hosmer-Lemeshow chi-squared = 373.07682
+P-value=  .00000 with deg.fr. =       8
+--------+--------------------------------------------------------------------
+        |                  Standard            Prob.      95% Confidence
+  CHOICE|  Coefficient       Error       z    |z|>Z*         Interval
+--------+--------------------------------------------------------------------
+   PRICE|    -.41619***      .08298    -5.02  .0000     -.57884   -.25355
+MONSANTO|     .37909**       .15744     2.41  .0160      .07051    .68767
+     SFC|     .67488***      .10928     6.18  .0000      .46070    .88906
+  PUBLIC|    -.91851***      .08151   -11.27  .0000    -1.07828   -.75875
+   SEEDS|     .14402**       .06308     2.28  .0224      .02038    .26766
+  CDPROD|     .01327***      .00070    19.06  .0000      .01190    .01463
+ CDPRICE|    -.02221***      .00158   -14.03  .0000     -.02531   -.01910
+ TECHPRI|     .01666***      .00136    12.22  .0000      .01399    .01933
+  NEPPRI|    -.00225         .00155    -1.46  .1456     -.00528    .00078
+--------+--------------------------------------------------------------------
+Note: ***, **, * ==>  Significance at 1%, 5%, 10% level.
+-----------------------------------------------------------------------------
+

@@ -1,0 +1,138 @@
+reset$
+
+?Monsanto Information Treatment
+import; file="E:\GM Project copy\Choice Experiment\spain\spain_Monsanto.csv"$
+create; CDProd = total_CD * producer$
+create; CDPrice = total_CD * price$
+create; TechPri= total_te * price$
+create; NepPri= total_ne * price$
+
+create; monsanto=producer=1$
+create; sfc=producer=2$
+create; public=producer=3$
+create; price1=-price$
+
+GMXLOGIT; Lhs = choice; Choices =A, B, C;
+Model: U(A, B)=P*Price1+Mon*monsanto+Fam*sfc+pub*public+seed*seeds/ 
+             U(C)=a+P*Price1+Mon*monsanto+Fam*sfc+pub*public+seed*seeds;
+pds=9; parameter;
+Fcn =mon(n), fam(n), pub(n), seed(n), P(*L) $;
+
+? Correlated; 
+?Pds = 18;PTS=125;HALTON;Maxit = 200 $
+
+histogram; rhs=logl_obs;
+title = Spain Monsanto $
+
+dstat; rhs=logl_obs$
+
+reset$
+
+?Emotional Information Treatment
+import; file="E:\GM Project copy\Choice Experiment\spain\spain_emotional.csv"$
+create; CDProd = total_CD * producer$
+create; CDPrice = total_CD * price$
+create; TechPri= total_te * price$
+create; NepPri= total_ne * price$
+
+create; monsanto=producer=1$
+create; sfc=producer=2$
+create; public=producer=3$
+create; price1=-price$
+
+GMXLOGIT; Lhs = choice; Choices =A, B, C;
+Model: U(A, B)=P*Price1+Mon*monsanto+Fam*sfc+pub*public+seed*seeds/ 
+             U(C)=a+P*Price1+Mon*monsanto+Fam*sfc+pub*public+seed*seeds;
+pds=9; parameter;
+Fcn =mon(n), fam(n), pub(n), seed(n), P(*L) $;
+
+? Correlated; 
+?Pds = 18;PTS=125;HALTON;Maxit = 200 $
+
+histogram; rhs=logl_obs ;
+title=Spain Emotional $
+
+dstat; rhs=logl_obs$
+reset$
+
+?Simple Information Treatment
+import; file="E:\GM Project copy\Choice Experiment\spain\spain_simple.csv"$
+create; CDProd = total_CD * producer$
+create; CDPrice = total_CD * price$
+create; TechPri= total_te * price$
+create; NepPri= total_ne * price$
+
+create; monsanto=producer=1$
+create; sfc=producer=2$
+create; public=producer=3$
+create; price1=-price$
+
+GMXLOGIT; Lhs = choice; Choices =A, B, C;
+Model: U(A, B)=P*Price1+Mon*monsanto+Fam*sfc+pub*public+seed*seeds/ 
+             U(C)=a+P*Price1+Mon*monsanto+Fam*sfc+pub*public+seed*seeds;
+pds=9; parameter;
+Fcn =mon(n), fam(n), pub(n), seed(n), P(*L) $;
+
+? Correlated; 
+?Pds = 18;PTS=125;HALTON;Maxit = 200 $
+
+histogram; rhs=logl_obs ;
+title=Spain simple $
+
+dstat; rhs=logl_obs$
+
+reset$
+
+?Benefit Information Treatment
+import; file="E:\GM Project copy\Choice Experiment\spain\spain_benefit.csv"$
+create; CDProd = total_CD * producer$
+create; CDPrice = total_CD * price$
+create; TechPri= total_te * price$
+create; NepPri= total_ne * price$
+
+create; monsanto=producer=1$
+create; sfc=producer=2$
+create; public=producer=3$
+create; price1=-price$
+
+GMXLOGIT; Lhs = choice; Choices =A, B, C;
+Model: U(A, B)=P*Price1+Mon*monsanto+Fam*sfc+pub*public+seed*seeds/ 
+             U(C)=a+P*Price1+Mon*monsanto+Fam*sfc+pub*public+seed*seeds;
+pds=9; parameter;
+Fcn =mon(n), fam(n), pub(n), seed(n), P(*L) $;
+
+? Correlated; 
+?Pds = 18;PTS=125;HALTON;Maxit = 200 $
+
+histogram; rhs=logl_obs ;
+title=Spain benefit $
+
+dstat; rhs=logl_obs$
+
+reset$
+
+?Control Information Treatment
+import; file="E:\GM Project copy\Choice Experiment\spain\spain_control.csv"$
+create; CDProd = total_CD * producer$
+create; CDPrice = total_CD * price$
+create; TechPri= total_te * price$
+create; NepPri= total_ne * price$
+
+create; monsanto=producer=1$
+create; sfc=producer=2$
+create; public=producer=3$
+create; price1=-price$
+
+GMXLOGIT; Lhs = choice; Choices =A, B, C;
+Model: U(A, B)=P*Price1+Mon*monsanto+Fam*sfc+pub*public+seed*seeds/ 
+             U(C)=a+P*Price1+Mon*monsanto+Fam*sfc+pub*public+seed*seeds;
+pds=9; parameter;
+Fcn =mon(n), fam(n), pub(n), seed(n), P(*L) $;
+
+? Correlated; 
+?Pds = 18;PTS=125;HALTON;Maxit = 200 $
+
+histogram; rhs=logl_obs ;
+title=Spain control $
+
+dstat; rhs=logl_obs$

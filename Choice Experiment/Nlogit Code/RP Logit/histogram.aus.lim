@@ -1,0 +1,87 @@
+?Create Histograms for all info treatments, all producer type?
+?Histograms for Monsanto Information Treatment?
+reset$
+import; file = "E:\GM Project copy\Choice Experiment\Austria.Germany\Short\aus_mon.csv" $
+
+histogram; rhs=WTP_MON;
+title=AUS_Monsanto IT/Monsanto$
+
+histogram; rhs=WTP_FAM;
+title=AUS_Monsanto IT/Family$
+
+histogram; rhs=WTP_PUB;
+title=AUS_Monsanto IT/Public$
+
+
+?Histograms for Emotional Information Treatment?
+reset$
+
+import; file = "E:\GM Project copy\Choice Experiment\Austria.Germany\Short\aus_emo.csv" $
+
+histogram; rhs=WTP_MON;
+title=AUS_Emotional IT/Monsanto$
+
+histogram; rhs=WTP_FAM;
+title=AUS_Emotional IT/Family$
+
+histogram; rhs=WTP_PUB;
+title=AUS_Emotional IT/Public$	
+
+?SImple Information Treatment?
+reset$
+
+import; file = "E:\GM Project copy\Choice Experiment\Austria.Germany\Short\aus_sim.csv" $
+
+histogram; rhs=WTP_MON;
+title=AUS_Simple IT/Monsanto$
+
+histogram; rhs=WTP_FAM;
+title=AUS_Simple IT/Family$
+
+histogram; rhs=WTP_PUB;
+title=AUS_Simple IT/Public$	
+
+?Benefit Information Treatment?
+reset$
+
+import; file = "E:\GM Project copy\Choice Experiment\Austria.Germany\Short\aus_ben.csv" $
+
+histogram; rhs=WTP_MON;
+title=AUS_Benefit IT/Monsanto$
+
+histogram; rhs=WTP_FAM;
+title=AUS_Benefit IT/Family$
+
+histogram; rhs=WTP_PUB;
+title=AUS_Benefit IT/Public$	
+
+?Control?
+reset$
+
+import; file = "E:\GM Project copy\Choice Experiment\Austria.Germany\Short\aus_con.csv" $
+
+histogram; rhs=WTP_MON;
+title=AUS_Control IT/Monsanto$
+
+histogram; rhs=WTP_FAM;
+title=AUS_Control IT/Family$
+
+histogram; rhs=WTP_PUB;
+title=AUS_Control IT/Public$	
+
+
+?Full Sample?
+reset$
+
+import; file = "E:\GM Project copy\Choice Experiment\Austria.Germany\Short\aus_full.csv"$
+
+histogram; rhs=WTP_MON;
+title=AUS_Full/Monsanto$
+
+histogram; rhs=WTP_FAM;
+title=AUS_Full/Family$
+
+histogram; rhs=WTP_PUB;
+title=AUS_Full/Public$	
+	
+	

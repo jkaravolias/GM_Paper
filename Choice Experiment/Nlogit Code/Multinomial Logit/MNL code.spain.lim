@@ -1,0 +1,88 @@
+reset$
+import; file="E:\GM Project copy\Choice Experiment\spain\spain_Monsanto.csv"$
+create; CDProd = total_CD * producer$
+create; CDPrice = total_CD * price$
+create; TechPri= total_te * price$
+create; NepPri= total_ne * price$
+
+create; monsanto=producer=1$
+create; sfc=producer=2$
+create; public=producer=3$
+create; nobio=producer=4$
+
+
+nlogit; lhs=choice
+	; choices= a,b,c
+	; rhs=price, monsanto,sfc,public,nobio, seeds, CDProd, cdprice, techpri,neppri 
+	; title= Multinomial Logit for US Monsanto$
+
+reset$
+import; file="E:\GM Project copy\Choice Experiment\spain\spain_emotional.csv"$
+create; CDProd = total_CD * producer$
+create; CDPrice = total_CD * price$
+create; TechPri= total_te * price$
+create; NepPri= total_ne * price$
+
+create; monsanto=producer=1$
+create; sfc=producer=2$
+create; public=producer=3$
+create; nobio=prodcuer=4$
+
+
+nlogit; lhs=choice
+	; choices= a,b,c
+	; rhs=price, monsanto,sfc,public, nobio, seeds, CDProd, cdprice, techpri,neppri $
+
+reset$
+import; file="E:\GM Project copy\Choice Experiment\spain\spain_simple.csv"$
+create; CDProd = total_CD * producer$
+create; CDPrice = total_CD * price$
+create; TechPri= total_te * price$
+create; NepPri= total_ne * price$
+
+create; monsanto=producer=1$
+create; sfc=producer=2$
+create; public=producer=3$
+create; nobio=producer=4$
+
+
+nlogit; lhs=choice
+	; choices= a,b,c
+	; rhs=price, monsanto,sfc,public,nobio, seeds, CDProd, cdprice, techpri,neppri $
+
+reset$
+import; file="E:\GM Project copy\Choice Experiment\spain\spain_benefit.csv"$
+create; CDProd = total_CD * producer$
+create; CDPrice = total_CD * price$
+create; TechPri= total_te * price$
+create; NepPri= total_ne * price$
+
+create; monsanto=producer=1$
+create; sfc=producer=2$
+create; public=producer=3$
+create; nobio=producer=4$
+
+
+nlogit; lhs=choice
+	; choices= a,b,c
+	; rhs=price, monsanto,sfc,public,nobio, seeds, CDProd, cdprice, techpri,neppri $
+
+reset$
+import; file="E:\GM Project copy\Choice Experiment\spain\spain_control.csv"$
+create; CDProd = total_CD * producer$
+create; CDPrice = total_CD * price$
+create; TechPri= total_te * price$
+create; NepPri= total_ne * price$
+
+create; monsanto=producer=1$
+create; sfc=producer=2$
+create; public=producer=3$
+create; nobio=producer=4$
+
+
+nlogit; lhs=choice
+	; choices= a,b,c
+	; rhs=price, monsanto,sfc,public,nobio, seeds, CDProd, cdprice, techpri,neppri $
+
+
+

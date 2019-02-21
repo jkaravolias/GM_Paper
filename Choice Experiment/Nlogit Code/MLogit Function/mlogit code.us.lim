@@ -1,0 +1,89 @@
+reset$
+import; file="E:\GM Project copy\Choice Experiment\US\US_monsanto.csv"$
+create; CDProd = total_CD * producer$
+create; CDPrice = total_CD * price$
+create; TechPri= total_te * price$
+create; NepPri= total_ne * price$
+
+create; monsanto=producer=1$
+create; sfc=producer=2$
+create; public=producer=3$
+
+GMXLOGIT; Lhs = choice; Choices =A, B, C;
+Model: U(A, B)=P*Price+Mon*monsanto+Fam*sfc+pub*public+seed*seeds/ 
+             U(C)=a+P*Price+Mon*monsanto+Fam*sfc+pub*public+seed*seeds;
+Fcn =mon(n), fam(n), pub(n), seed(n), P(*L); Correlated; 
+Pds = 18;PTS=125;HALTON;Maxit = 200 $
+
+
+glogit; lhs=choice
+	; choices= a,b,c
+	; rhs=price, monsanto,sfc,public, seeds, CDProd, cdprice, techpri,neppri 
+	; title= Multinomial Logit for US Monsanto$
+
+reset$
+import; file="E:\GM Project copy\Choice Experiment\US\US_emotional.csv"$
+create; CDProd = total_CD * producer$
+create; CDPrice = total_CD * price$
+create; TechPri= total_te * price$
+create; NepPri= total_ne * price$
+
+create; monsanto=producer=1$
+create; sfc=producer=2$
+create; public=producer=3$
+
+
+mlogit; lhs=choice
+	; choices= a,b,c
+	; rhs=price, monsanto,sfc,public, seeds, CDProd, cdprice, techpri,neppri $
+
+reset$
+import; file="E:\GM Project copy\Choice Experiment\US\US_simple.csv"$
+create; CDProd = total_CD * producer$
+create; CDPrice = total_CD * price$
+create; TechPri= total_te * price$
+create; NepPri= total_ne * price$
+
+create; monsanto=producer=1$
+create; sfc=producer=2$
+create; public=producer=3$
+
+
+mlogit; lhs=choice
+	; choices= a,b,c
+	; rhs=price, monsanto,sfc,public, seeds, CDProd, cdprice, techpri,neppri $
+
+reset$
+import; file="E:\GM Project copy\Choice Experiment\US\US_benefit.csv"$
+create; CDProd = total_CD * producer$
+create; CDPrice = total_CD * price$
+create; TechPri= total_te * price$
+create; NepPri= total_ne * price$
+
+create; monsanto=producer=1$
+create; sfc=producer=2$
+create; public=producer=3$
+
+
+mlogit; lhs=choice
+	; choices= a,b,c
+	; rhs=price, monsanto,sfc,public, seeds, CDProd, cdprice, techpri,neppri $
+
+reset$
+import; file="E:\GM Project copy\Choice Experiment\US\US_control.csv"$
+create; CDProd = total_CD * producer$
+create; CDPrice = total_CD * price$
+create; TechPri= total_te * price$
+create; NepPri= total_ne * price$
+
+create; monsanto=producer=1$
+create; sfc=producer=2$
+create; public=producer=3$
+
+
+mlogit; lhs=choice
+	; choices= a,b,c
+	; rhs=price, monsanto,sfc,public, seeds, CDProd, cdprice, techpri,neppri $
+
+
+

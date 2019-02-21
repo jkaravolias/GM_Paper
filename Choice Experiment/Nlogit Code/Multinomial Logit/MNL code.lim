@@ -1,0 +1,18 @@
+reset$
+import; file="E:\GM Project copy\Choice Experiment\US\US_Control.csv"$
+create; CDProd = total_CD * producer$
+create; CDPrice = total_CD * price$
+create; TechPri= total_te * price$
+create; NepPri= total_ne * price$
+create; monstanto=producer$
+recode; monstant;1=1;2=0;3=0;4=0; 0=0$
+create; SFC=producer$
+recode; SFC; 1=0;2=1;3=0;4=0;0=0$
+create; Public=producer$
+recode; Public; 1=0;2=0;3=1;4=0;0=0$
+
+nlogit; lhs=choice
+	; choices= a,b,c
+	; rhs=price, monstant,sfc,public, seeds, CDProd, cdprice, techpri,neppri $
+
+

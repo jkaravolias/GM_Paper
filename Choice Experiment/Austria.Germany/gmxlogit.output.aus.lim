@@ -1,0 +1,543 @@
+|-> RESET
+O---------------------------------------------------------O
+| NLOGIT 5  (tm)                 Nov 15, 2016, 08:25:13PM |
+| Econometric Software, Inc.     Copyright 1986-2012      |
+| Plainview, New York 11803                               |
+| Registered to                  Joanna Karavolias        |
+|                                University of Florida    |
+| Registration Number            1206-0012703-LSL         |
+O---------------------------------------------------------O
+-------Initializing NLOGIT Version 5  (May 1, 2012)--------
+-----------------------------------------------------------
+
+|-> reset$
+|-> import; file="E:\GM Project copy\Choice Experiment\Austria.Germany\AUS_Monsanto.csv"$
+Last observation read from data file was   11070
+Error    535: Warning: Name LOCATION was in use. Replaced with X113
+Error    535: Warning: Name LOCATION was in use. Replaced with X114
+|-> create; CDProd = total_CD * producer$
+|-> create; CDPrice = total_CD * price$
+|-> create; TechPri= total_te * price$
+|-> create; NepPri= total_ne * price$
+|-> create; monsanto=producer=1$
+|-> create; sfc=producer=2$
+|-> create; public=producer=3$
+|-> GMXLOGIT; Lhs = choice; Choices =A, B, C;
+    Model: U(A, B)=P*Price+Mon*monsanto+Fam*sfc+pub*public+seed*seeds/
+    U(C)=a+P*Price+Mon*monsanto+Fam*sfc+pub*public+seed*seeds;
+    Fcn =mon(n), fam(n), pub(n), seed(n), P(*L) $;
+
++------------------------------------------------------+
+|WARNING:   Bad observations were found in the sample. |
+|Found  83 bad observations among    3690 individuals. |
+|You can use ;CheckData to get a list of these points. |
++------------------------------------------------------+
+
+Normal exit:   5 iterations. Status=0, F=    3348.634
+
+-----------------------------------------------------------------------------
+Start values obtained using MNL model
+Dependent variable               Choice
+Log likelihood function     -3348.63361
+Estimation based on N =   3607, K =   6
+Inf.Cr.AIC  =   6709.3 AIC/N =    1.860
+Model estimated: Nov 15, 2016, 20:26:57
+R2=1-LogL/LogL* Log-L fncn R-sqrd R2Adj
+Constants only  -3919.3465  .1456 .1443
+Response data are given as ind. choices
+Number of obs.=  3690, skipped   83 obs
+--------+--------------------------------------------------------------------
+        |                  Standard            Prob.      95% Confidence
+  CHOICE|  Coefficient       Error       z    |z|>Z*         Interval
+--------+--------------------------------------------------------------------
+     MON|   -2.36198***      .09381   -25.18  .0000    -2.54584  -2.17812
+     FAM|    -.60502***      .06439    -9.40  .0000     -.73121   -.47882
+     PUB|   -1.49074***      .07366   -20.24  .0000    -1.63510  -1.34637
+    SEED|     .41188***      .05307     7.76  .0000      .30786    .51589
+       P|   -1.52998***      .09956   -15.37  .0000    -1.72512  -1.33484
+       A|   -3.63328***      .19213   -18.91  .0000    -4.00985  -3.25670
+--------+--------------------------------------------------------------------
+Note: ***, **, * ==>  Significance at 1%, 5%, 10% level.
+-----------------------------------------------------------------------------
+
+Normal exit:  57 iterations. Status=0, F=    3325.741
+
+-----------------------------------------------------------------------------
+Generalized Mixed (RP) Logit Model
+Dependent variable               CHOICE
+Log likelihood function     -3325.74128
+Restricted log likelihood   -3962.69453
+Chi squared [  11 d.f.]      1273.90650
+Significance level               .00000
+McFadden Pseudo R-squared      .1607374
+Estimation based on N =   3607, K =  11
+Inf.Cr.AIC  =   6673.5 AIC/N =    1.850
+Model estimated: Nov 15, 2016, 20:30:54
+R2=1-LogL/LogL* Log-L fncn R-sqrd R2Adj
+No coefficients -3962.6945  .1607 .1595
+Constants only  -3919.3465  .1515 .1502
+At start values -7983.9415  .5834 .5828
+Response data are given as ind. choices
+Replications for simulated probs. = 100
+Used pseudo random draws (Mersenne twister)
+BHHH estimator used for asymp. variance
+Number of obs.=  3690, skipped   83 obs
+--------+--------------------------------------------------------------------
+        |                  Standard            Prob.      95% Confidence
+  CHOICE|  Coefficient       Error       z    |z|>Z*         Interval
+--------+--------------------------------------------------------------------
+        |Random parameters in utility functions
+     MON|    1.31268***      .10141    12.94  .0000     1.11392   1.51145
+     FAM|     .42927***      .05408     7.94  .0000      .32327    .53528
+     PUB|     .98280***      .14520     6.77  .0000      .69820   1.26739
+    SEED|    -.20349***      .03431    -5.93  .0000     -.27074   -.13625
+       P|        1.0    .....(Fixed Parameter).....
+        |Nonrandom parameters in utility functions
+       A|   -5.37216***      .43654   -12.31  .0000    -6.22776  -4.51655
+        |Distns. of RPs. Std.Devs or limits of triangular
+   NsMON|     .25981         .25546     1.02  .3091     -.24087    .76050
+   NsFAM|    1.03717***      .10448     9.93  .0000      .83239   1.24195
+   NsPUB|     .69546**       .28216     2.46  .0137      .14243   1.24849
+  NsSEED|     .09063         .09565      .95  .3434     -.09685    .27810
+     CsP|        0.0    .....(Fixed Parameter).....
+        |Variance parameter tau in GMX scale parameter
+TauScale|     .00153        1.21872      .00  .9990    -2.38712   2.39017
+        |Weighting parameter gamma in GMX model
+GammaMXL|        0.0    .....(Fixed Parameter).....
+        |Coefficient on P        in preference space form
+Beta0WTP|   -2.36256       49.10941     -.05  .9616   -98.61523  93.89011
+S_b0_WTP|        0.0    .....(Fixed Parameter).....
+        |  Sample Mean    Sample Std.Dev.
+Sigma(i)|    1.01385        4.52206      .22  .8226    -7.84924   9.87693
+--------+--------------------------------------------------------------------
+Note: ***, **, * ==>  Significance at 1%, 5%, 10% level.
+Fixed parameter ... is constrained to equal the value or
+had a nonpositive st.error because of an earlier problem.
+-----------------------------------------------------------------------------
+
+|-> reset$
+|-> import; file="E:\GM Project copy\Choice Experiment\Austria.Germany\AUS_emotional.csv"$
+Last observation read from data file was   11070
+Error    535: Warning: Name LOCATION was in use. Replaced with X113
+Error    535: Warning: Name LOCATION was in use. Replaced with X114
+|-> create; CDProd = total_CD * producer$
+|-> create; CDPrice = total_CD * price$
+|-> create; TechPri= total_te * price$
+|-> create; NepPri= total_ne * price$
+|-> create; monsanto=producer=1$
+|-> create; sfc=producer=2$
+|-> create; public=producer=3$
+|-> GMXLOGIT; Lhs = choice; Choices =A, B, C;
+    Model: U(A, B)=P*Price+Mon*monsanto+Fam*sfc+pub*public+seed*seeds/
+    U(C)=a+P*Price+Mon*monsanto+Fam*sfc+pub*public+seed*seeds;
+    Fcn =mon(n), fam(n), pub(n), seed(n), P(*L) $;
+
++------------------------------------------------------+
+|WARNING:   Bad observations were found in the sample. |
+|Found  11 bad observations among    3690 individuals. |
+|You can use ;CheckData to get a list of these points. |
++------------------------------------------------------+
+
+Normal exit:   6 iterations. Status=0, F=    3348.176
+
+-----------------------------------------------------------------------------
+Start values obtained using MNL model
+Dependent variable               Choice
+Log likelihood function     -3348.17583
+Estimation based on N =   3679, K =   6
+Inf.Cr.AIC  =   6708.4 AIC/N =    1.823
+Model estimated: Nov 15, 2016, 20:31:41
+R2=1-LogL/LogL* Log-L fncn R-sqrd R2Adj
+Constants only  -4004.6815  .1639 .1627
+Response data are given as ind. choices
+Number of obs.=  3690, skipped   11 obs
+--------+--------------------------------------------------------------------
+        |                  Standard            Prob.      95% Confidence
+  CHOICE|  Coefficient       Error       z    |z|>Z*         Interval
+--------+--------------------------------------------------------------------
+     MON|   -2.57186***      .09597   -26.80  .0000    -2.75996  -2.38375
+     FAM|    -.75479***      .06482   -11.64  .0000     -.88184   -.62774
+     PUB|   -1.69143***      .07487   -22.59  .0000    -1.83818  -1.54469
+    SEED|     .41138***      .05378     7.65  .0000      .30596    .51679
+       P|   -1.53571***      .10042   -15.29  .0000    -1.73253  -1.33888
+       A|   -3.72766***      .19463   -19.15  .0000    -4.10913  -3.34619
+--------+--------------------------------------------------------------------
+Note: ***, **, * ==>  Significance at 1%, 5%, 10% level.
+-----------------------------------------------------------------------------
+
+Line search at iteration   71 does not improve fn. Exiting optimization.
+
+-----------------------------------------------------------------------------
+Generalized Mixed (RP) Logit Model
+Dependent variable               CHOICE
+Log likelihood function     -3334.56768
+Restricted log likelihood   -4041.79461
+Chi squared [  11 d.f.]      1414.45386
+Significance level               .00000
+McFadden Pseudo R-squared      .1749784
+Estimation based on N =   3679, K =  11
+Inf.Cr.AIC  =   6691.1 AIC/N =    1.819
+Model estimated: Nov 15, 2016, 20:37:26
+R2=1-LogL/LogL* Log-L fncn R-sqrd R2Adj
+No coefficients -4041.7946  .1750 .1737
+Constants only  -4004.6815  .1673 .1661
+At start values -8136.9067  .5902 .5896
+Response data are given as ind. choices
+Replications for simulated probs. = 100
+Used pseudo random draws (Mersenne twister)
+BHHH estimator used for asymp. variance
+Number of obs.=  3690, skipped   11 obs
+--------+--------------------------------------------------------------------
+        |                  Standard            Prob.      95% Confidence
+  CHOICE|  Coefficient       Error       z    |z|>Z*         Interval
+--------+--------------------------------------------------------------------
+        |Random parameters in utility functions
+     MON|    1.51883***      .13132    11.57  .0000     1.26145   1.77621
+     FAM|     .50520***      .05738     8.80  .0000      .39274    .61766
+     PUB|    1.10744***      .14992     7.39  .0000      .81361   1.40128
+    SEED|    -.22125***      .03524    -6.28  .0000     -.29031   -.15219
+       P|        1.0    .....(Fixed Parameter).....
+        |Nonrandom parameters in utility functions
+       A|   -5.00549***      .43376   -11.54  .0000    -5.85565  -4.15532
+        |Distns. of RPs. Std.Devs or limits of triangular
+   NsMON|     .31631         .28258     1.12  .2630     -.23754    .87016
+   NsFAM|     .85170***      .10110     8.42  .0000      .65354   1.04985
+   NsPUB|     .64451**       .27004     2.39  .0170      .11524   1.17379
+  NsSEED|     .17141*        .08771     1.95  .0507     -.00050    .34332
+     CsP|        0.0    .....(Fixed Parameter).....
+        |Variance parameter tau in GMX scale parameter
+TauScale|        0.0      .6104D+12      .00 1.0000 -.11965D+13  .11965D+13
+        |Weighting parameter gamma in GMX model
+GammaMXL|        0.0    .....(Fixed Parameter).....
+        |Coefficient on P        in preference space form
+Beta0WTP|   -1.76695      .2268D+26      .00 1.0000 ***********  ***********
+S_b0_WTP|        0.0    .....(Fixed Parameter).....
+        |  Sample Mean    Sample Std.Dev.
+Sigma(i)|     .84916      .1952D+13      .00 1.0000 ***********  ***********
+--------+--------------------------------------------------------------------
+Note: nnnnn.D-xx or D+xx => multiply by 10 to -xx or +xx.
+Note: ***, **, * ==>  Significance at 1%, 5%, 10% level.
+Fixed parameter ... is constrained to equal the value or
+had a nonpositive st.error because of an earlier problem.
+-----------------------------------------------------------------------------
+
+|-> reset$
+|-> import; file="E:\GM Project copy\Choice Experiment\Austria.Germany\AUS_simple.csv"$
+Last observation read from data file was   11070
+Error    535: Warning: Name LOCATION was in use. Replaced with X113
+Error    535: Warning: Name LOCATION was in use. Replaced with X114
+|-> create; CDProd = total_CD * producer$
+|-> create; CDPrice = total_CD * price$
+|-> create; TechPri= total_te * price$
+|-> create; NepPri= total_ne * price$
+|-> create; monsanto=producer=1$
+|-> create; sfc=producer=2$
+|-> create; public=producer=3$
+|-> GMXLOGIT; Lhs = choice; Choices =A, B, C;
+    Model: U(A, B)=P*Price+Mon*monsanto+Fam*sfc+pub*public+seed*seeds/
+    U(C)=a+P*Price+Mon*monsanto+Fam*sfc+pub*public+seed*seeds;
+    Fcn =mon(n), fam(n), pub(n), seed(n), P(*L) $;
+
++------------------------------------------------------+
+|WARNING:   Bad observations were found in the sample. |
+|Found  81 bad observations among    3690 individuals. |
+|You can use ;CheckData to get a list of these points. |
++------------------------------------------------------+
+
+Normal exit:   5 iterations. Status=0, F=    3346.530
+
+-----------------------------------------------------------------------------
+Start values obtained using MNL model
+Dependent variable               Choice
+Log likelihood function     -3346.52965
+Estimation based on N =   3609, K =   6
+Inf.Cr.AIC  =   6705.1 AIC/N =    1.858
+Model estimated: Nov 15, 2016, 20:37:46
+R2=1-LogL/LogL* Log-L fncn R-sqrd R2Adj
+Constants only  -3897.5626  .1414 .1401
+Response data are given as ind. choices
+Number of obs.=  3690, skipped   81 obs
+--------+--------------------------------------------------------------------
+        |                  Standard            Prob.      95% Confidence
+  CHOICE|  Coefficient       Error       z    |z|>Z*         Interval
+--------+--------------------------------------------------------------------
+     MON|   -2.36988***      .09432   -25.12  .0000    -2.55475  -2.18501
+     FAM|    -.50939***      .06384    -7.98  .0000     -.63452   -.38426
+     PUB|   -1.34755***      .07212   -18.69  .0000    -1.48890  -1.20620
+    SEED|     .46629***      .05275     8.84  .0000      .36291    .56968
+       P|   -1.50026***      .09916   -15.13  .0000    -1.69461  -1.30591
+       A|   -3.52555***      .18904   -18.65  .0000    -3.89606  -3.15504
+--------+--------------------------------------------------------------------
+Note: ***, **, * ==>  Significance at 1%, 5%, 10% level.
+-----------------------------------------------------------------------------
+
+Line search at iteration   70 does not improve fn. Exiting optimization.
+
+-----------------------------------------------------------------------------
+Generalized Mixed (RP) Logit Model
+Dependent variable               CHOICE
+Log likelihood function     -3331.85677
+Restricted log likelihood   -3964.89175
+Chi squared [  11 d.f.]      1266.06996
+Significance level               .00000
+McFadden Pseudo R-squared      .1596601
+Estimation based on N =   3609, K =  11
+Inf.Cr.AIC  =   6685.7 AIC/N =    1.853
+Model estimated: Nov 15, 2016, 20:43:54
+R2=1-LogL/LogL* Log-L fncn R-sqrd R2Adj
+No coefficients -3964.8917  .1597 .1584
+Constants only  -3897.5626  .1451 .1438
+At start values -8069.2059  .5871 .5865
+Response data are given as ind. choices
+Replications for simulated probs. = 100
+Used pseudo random draws (Mersenne twister)
+BHHH estimator used for asymp. variance
+Number of obs.=  3690, skipped   81 obs
+--------+--------------------------------------------------------------------
+        |                  Standard            Prob.      95% Confidence
+  CHOICE|  Coefficient       Error       z    |z|>Z*         Interval
+--------+--------------------------------------------------------------------
+        |Random parameters in utility functions
+     MON|    1.41783***      .11290    12.56  .0000     1.19654   1.63911
+     FAM|     .36397***      .05307     6.86  .0000      .25996    .46797
+     PUB|     .99287***      .15123     6.57  .0000      .69645   1.28928
+    SEED|    -.27726***      .03621    -7.66  .0000     -.34823   -.20630
+       P|        1.0    .....(Fixed Parameter).....
+        |Nonrandom parameters in utility functions
+       A|   -4.67668***      .37687   -12.41  .0000    -5.41532  -3.93803
+        |Distns. of RPs. Std.Devs or limits of triangular
+   NsMON|     .22717         .32507      .70  .4847     -.40996    .86430
+   NsFAM|     .91212***      .10737     8.49  .0000      .70167   1.12257
+   NsPUB|     .85993***      .30681     2.80  .0051      .25859   1.46126
+  NsSEED|     .09679         .11404      .85  .3960     -.12673    .32031
+     CsP|        0.0    .....(Fixed Parameter).....
+        |Variance parameter tau in GMX scale parameter
+TauScale|        0.0      .2414D+11      .00 1.0000 -.47304D+11  .47304D+11
+        |Weighting parameter gamma in GMX model
+GammaMXL|        0.0    .....(Fixed Parameter).....
+        |Coefficient on P        in preference space form
+Beta0WTP|   -1.84385      .4811D+21      .00 1.0000 ***********  ***********
+S_b0_WTP|        0.0    .....(Fixed Parameter).....
+        |  Sample Mean    Sample Std.Dev.
+Sigma(i)|     .89210      .2807D+11      .00 1.0000 ***********  ***********
+--------+--------------------------------------------------------------------
+Note: nnnnn.D-xx or D+xx => multiply by 10 to -xx or +xx.
+Note: ***, **, * ==>  Significance at 1%, 5%, 10% level.
+Fixed parameter ... is constrained to equal the value or
+had a nonpositive st.error because of an earlier problem.
+-----------------------------------------------------------------------------
+
+|-> reset$
+|-> import; file="E:\GM Project copy\Choice Experiment\Austria.Germany\AUS_benefit.csv"$
+Last observation read from data file was   11070
+Error    535: Warning: Name LOCATION was in use. Replaced with X113
+Error    535: Warning: Name LOCATION was in use. Replaced with X114
+|-> create; CDProd = total_CD * producer$
+|-> create; CDPrice = total_CD * price$
+|-> create; TechPri= total_te * price$
+|-> create; NepPri= total_ne * price$
+|-> create; monsanto=producer=1$
+|-> create; sfc=producer=2$
+|-> create; public=producer=3$
+|-> GMXLOGIT; Lhs = choice; Choices =A, B, C;
+    Model: U(A, B)=P*Price+Mon*monsanto+Fam*sfc+pub*public+seed*seeds/
+    U(C)=a+P*Price+Mon*monsanto+Fam*sfc+pub*public+seed*seeds;
+    Fcn =mon(n), fam(n), pub(n), seed(n), P(*L) $;
+
++------------------------------------------------------+
+|WARNING:   Bad observations were found in the sample. |
+|Found 117 bad observations among    3690 individuals. |
+|You can use ;CheckData to get a list of these points. |
++------------------------------------------------------+
+
+Normal exit:   5 iterations. Status=0, F=    3304.931
+
+-----------------------------------------------------------------------------
+Start values obtained using MNL model
+Dependent variable               Choice
+Log likelihood function     -3304.93130
+Estimation based on N =   3573, K =   6
+Inf.Cr.AIC  =   6621.9 AIC/N =    1.853
+Model estimated: Nov 15, 2016, 20:44:13
+R2=1-LogL/LogL* Log-L fncn R-sqrd R2Adj
+Constants only  -3893.6252  .1512 .1499
+Response data are given as ind. choices
+Number of obs.=  3690, skipped  117 obs
+--------+--------------------------------------------------------------------
+        |                  Standard            Prob.      95% Confidence
+  CHOICE|  Coefficient       Error       z    |z|>Z*         Interval
+--------+--------------------------------------------------------------------
+     MON|   -2.42759***      .09501   -25.55  .0000    -2.61380  -2.24139
+     FAM|    -.71789***      .06523   -11.00  .0000     -.84574   -.59003
+     PUB|   -1.59335***      .07494   -21.26  .0000    -1.74023  -1.44646
+    SEED|     .35106***      .05361     6.55  .0000      .24598    .45614
+       P|   -1.49650***      .10058   -14.88  .0000    -1.69363  -1.29937
+       A|   -3.66532***      .19592   -18.71  .0000    -4.04931  -3.28133
+--------+--------------------------------------------------------------------
+Note: ***, **, * ==>  Significance at 1%, 5%, 10% level.
+-----------------------------------------------------------------------------
+
+Line search at iteration   68 does not improve fn. Exiting optimization.
+
+-----------------------------------------------------------------------------
+Generalized Mixed (RP) Logit Model
+Dependent variable               CHOICE
+Log likelihood function     -3286.00340
+Restricted log likelihood   -3925.34171
+Chi squared [  11 d.f.]      1278.67661
+Significance level               .00000
+McFadden Pseudo R-squared      .1628746
+Estimation based on N =   3573, K =  11
+Inf.Cr.AIC  =   6594.0 AIC/N =    1.846
+Model estimated: Nov 15, 2016, 20:49:42
+R2=1-LogL/LogL* Log-L fncn R-sqrd R2Adj
+No coefficients -3925.3417  .1629 .1616
+Constants only  -3893.6252  .1561 .1548
+At start values -7902.5495  .5842 .5835
+Response data are given as ind. choices
+Replications for simulated probs. = 100
+Used pseudo random draws (Mersenne twister)
+BHHH estimator used for asymp. variance
+Number of obs.=  3690, skipped  117 obs
+--------+--------------------------------------------------------------------
+        |                  Standard            Prob.      95% Confidence
+  CHOICE|  Coefficient       Error       z    |z|>Z*         Interval
+--------+--------------------------------------------------------------------
+        |Random parameters in utility functions
+     MON|    1.41666***      .11938    11.87  .0000     1.18268   1.65064
+     FAM|     .50411***      .05711     8.83  .0000      .39217    .61604
+     PUB|    1.10295***      .16655     6.62  .0000      .77651   1.42938
+    SEED|    -.18124***      .03491    -5.19  .0000     -.24966   -.11281
+       P|        1.0    .....(Fixed Parameter).....
+        |Nonrandom parameters in utility functions
+       A|   -5.13157***      .37664   -13.62  .0000    -5.86976  -4.39337
+        |Distns. of RPs. Std.Devs or limits of triangular
+   NsMON|     .35914         .24152     1.49  .1370     -.11422    .83250
+   NsFAM|    1.01628***      .10718     9.48  .0000      .80621   1.22635
+   NsPUB|     .77960***      .30007     2.60  .0094      .19148   1.36771
+  NsSEED|     .03759         .11647      .32  .7469     -.19068    .26586
+     CsP|        0.0    .....(Fixed Parameter).....
+        |Variance parameter tau in GMX scale parameter
+TauScale|        0.0      .1891D+11      .00 1.0000 -.37059D+11  .37059D+11
+        |Weighting parameter gamma in GMX model
+GammaMXL|        0.0    .....(Fixed Parameter).....
+        |Coefficient on P        in preference space form
+Beta0WTP|   -2.15977      .6351D+21      .00 1.0000 ***********  ***********
+S_b0_WTP|        0.0    .....(Fixed Parameter).....
+        |  Sample Mean    Sample Std.Dev.
+Sigma(i)|     .98406      .3032D+11      .00 1.0000 ***********  ***********
+--------+--------------------------------------------------------------------
+Note: nnnnn.D-xx or D+xx => multiply by 10 to -xx or +xx.
+Note: ***, **, * ==>  Significance at 1%, 5%, 10% level.
+Fixed parameter ... is constrained to equal the value or
+had a nonpositive st.error because of an earlier problem.
+-----------------------------------------------------------------------------
+
+|-> reset$
+|-> import; file="E:\GM Project copy\Choice Experiment\Austria.Germany\AUS_control.csv"$
+Last observation read from data file was   11070
+Error    535: Warning: Name LOCATION was in use. Replaced with X113
+Error    535: Warning: Name LOCATION was in use. Replaced with X114
+|-> create; CDProd = total_CD * producer$
+|-> create; CDPrice = total_CD * price$
+|-> create; TechPri= total_te * price$
+|-> create; NepPri= total_ne * price$
+|-> create; monsanto=producer=1$
+|-> create; sfc=producer=2$
+|-> create; public=producer=3$
+|-> GMXLOGIT; Lhs = choice; Choices =A, B, C;
+    Model: U(A, B)=P*Price+Mon*monsanto+Fam*sfc+pub*public+seed*seeds/
+    U(C)=a+P*Price+Mon*monsanto+Fam*sfc+pub*public+seed*seeds;
+    Fcn =mon(n), fam(n), pub(n), seed(n), P(*L) $;
+
++------------------------------------------------------+
+|WARNING:   Bad observations were found in the sample. |
+|Found  83 bad observations among    3690 individuals. |
+|You can use ;CheckData to get a list of these points. |
++------------------------------------------------------+
+
+Normal exit:   6 iterations. Status=0, F=    3330.553
+
+-----------------------------------------------------------------------------
+Start values obtained using MNL model
+Dependent variable               Choice
+Log likelihood function     -3330.55323
+Estimation based on N =   3607, K =   6
+Inf.Cr.AIC  =   6673.1 AIC/N =    1.850
+Model estimated: Nov 15, 2016, 20:50:02
+R2=1-LogL/LogL* Log-L fncn R-sqrd R2Adj
+Constants only  -3837.3239  .1321 .1307
+Response data are given as ind. choices
+Number of obs.=  3690, skipped   83 obs
+--------+--------------------------------------------------------------------
+        |                  Standard            Prob.      95% Confidence
+  CHOICE|  Coefficient       Error       z    |z|>Z*         Interval
+--------+--------------------------------------------------------------------
+     MON|   -1.80325***      .08931   -20.19  .0000    -1.97830  -1.62820
+     FAM|     .08264         .06255     1.32  .1865     -.03996    .20525
+     PUB|   -1.13736***      .07168   -15.87  .0000    -1.27786   -.99686
+    SEED|     .33908***      .05122     6.62  .0000      .23869    .43946
+       P|   -1.72551***      .09958   -17.33  .0000    -1.92068  -1.53034
+       A|   -3.96917***      .18921   -20.98  .0000    -4.34001  -3.59834
+--------+--------------------------------------------------------------------
+Note: ***, **, * ==>  Significance at 1%, 5%, 10% level.
+-----------------------------------------------------------------------------
+
+Line search at iteration    2 does not improve fn. Exiting optimization.
+With < 4 iterations, this may not be a good solution to the
+optimization. (The log-likelihood is flat.) Try refitting
+with ;Output=3 and examining the derivatives.
+
+-----------------------------------------------------------------------------
+Generalized Mixed (RP) Logit Model
+Dependent variable               CHOICE
+Log likelihood function     -3784.91417
+Restricted log likelihood   -3962.69453
+Chi squared [  11 d.f.]       355.56071
+Significance level               .00000
+McFadden Pseudo R-squared      .0448635
+Estimation based on N =   3607, K =  11
+Inf.Cr.AIC  =   7591.8 AIC/N =    2.105
+Model estimated: Nov 15, 2016, 20:51:38
+R2=1-LogL/LogL* Log-L fncn R-sqrd R2Adj
+No coefficients -3962.6945  .0449 .0434
+Constants only  -3837.3239  .0137 .0122
+At start values -8236.4732  .5405 .5398
+Response data are given as ind. choices
+Replications for simulated probs. = 100
+Used pseudo random draws (Mersenne twister)
+BHHH estimator used for asymp. variance
+Number of obs.=  3690, skipped   83 obs
+--------+--------------------------------------------------------------------
+        |                  Standard            Prob.      95% Confidence
+  CHOICE|  Coefficient       Error       z    |z|>Z*         Interval
+--------+--------------------------------------------------------------------
+        |Random parameters in utility functions
+     MON|    1.13072         .73012     1.55  .1215     -.30029   2.56174
+     FAM|    -.57879**       .23586    -2.45  .0141    -1.04107   -.11651
+     PUB|     .69123         .56620     1.22  .2222     -.41850   1.80095
+    SEED|   -1.21304***      .23392    -5.19  .0000    -1.67150   -.75457
+       P|        1.0    .....(Fixed Parameter).....
+        |Nonrandom parameters in utility functions
+       A|    -.67617***      .06210   -10.89  .0000     -.79789   -.55446
+        |Distns. of RPs. Std.Devs or limits of triangular
+   NsMON|    4.03754***     1.06062     3.81  .0001     1.95875   6.11632
+   NsFAM|     .25049*        .14499     1.73  .0841     -.03369    .53468
+   NsPUB|     .00536         .55586      .01  .9923    -1.08412   1.09483
+  NsSEED|     .14849         .13792     1.08  .2816     -.12183    .41880
+     CsP|        0.0    .....(Fixed Parameter).....
+        |Variance parameter tau in GMX scale parameter
+TauScale|    13.4057*       7.12738     1.88  .0600      -.5637   27.3751
+        |Weighting parameter gamma in GMX model
+GammaMXL|        0.0    .....(Fixed Parameter).....
+        |Coefficient on P        in preference space form
+Beta0WTP|    -.50938        2.84787     -.18  .8580    -6.09110   5.07234
+S_b0_WTP|        0.0    .....(Fixed Parameter).....
+        |  Sample Mean    Sample Std.Dev.
+Sigma(i)|     .24507         .55344      .44  .6579     -.83965   1.32979
+--------+--------------------------------------------------------------------
+Note: ***, **, * ==>  Significance at 1%, 5%, 10% level.
+Fixed parameter ... is constrained to equal the value or
+had a nonpositive st.error because of an earlier problem.
+-----------------------------------------------------------------------------
+

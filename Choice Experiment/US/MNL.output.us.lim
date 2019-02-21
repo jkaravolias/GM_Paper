@@ -1,0 +1,283 @@
+|-> RESET
+O---------------------------------------------------------O
+| NLOGIT 5  (tm)                 Oct 31, 2016, 03:14:11PM |
+| Econometric Software, Inc.     Copyright 1986-2012      |
+| Plainview, New York 11803                               |
+| Registered to                  Joanna Karavolias        |
+|                                University of Florida    |
+| Registration Number            1206-0012703-LSL         |
+O---------------------------------------------------------O
+-------Initializing NLOGIT Version 5  (May 1, 2012)--------
+-----------------------------------------------------------
+
+|-> reset$
+|-> import; file="E:\GM Project copy\Choice Experiment\US\US_monsanto.csv"$
+Last observation read from data file was   11070
+Error    535: Warning: Name Q7_1_VIT was in use. Replaced with X89
+Error    535: Warning: Name Q11_10_6 was in use. Replaced with X123
+Error    535: Warning: Name LOCATION was in use. Replaced with X125
+Error    535: Warning: Name LOCATION was in use. Replaced with X126
+|-> create; CDProd = total_CD * producer$
+|-> create; CDPrice = total_CD * price$
+|-> create; TechPri= total_te * price$
+|-> create; NepPri= total_ne * price$
+|-> create; monsanto=producer=1$
+|-> create; sfc=producer=2$
+|-> create; public=producer=3$
+|-> nlogit; lhs=choice
+    	; choices= a,b,c
+    	; rhs=price, monsanto,sfc,public, seeds, CDProd, cdprice, techpri,neppri
+    	; title= Multinomial Logit for US Monsanto$
+
++------------------------------------------------------+
+|WARNING:   Bad observations were found in the sample. |
+|Found  25 bad observations among    3690 individuals. |
+|You can use ;CheckData to get a list of these points. |
++------------------------------------------------------+
+
+Normal exit:   6 iterations. Status=0, F=    3433.768
+
+-----------------------------------------------------------------------------
+Discrete choice (multinomial logit) model
+Dependent variable               Choice
+Log likelihood function     -3433.76774
+Estimation based on N =   3665, K =   9
+Inf.Cr.AIC  =   6885.5 AIC/N =    1.879
+Model estimated: Oct 31, 2016, 15:14:35
+R2=1-LogL/LogL* Log-L fncn R-sqrd R2Adj
+Constants only  -4009.0062  .1435 .1424
+Response data are given as ind. choices
+Number of obs.=  3690, skipped   25 obs
+--------+--------------------------------------------------------------------
+        |                  Standard            Prob.      95% Confidence
+  CHOICE|  Coefficient       Error       z    |z|>Z*         Interval
+--------+--------------------------------------------------------------------
+   PRICE|   -1.35177***      .16826    -8.03  .0000    -1.68155  -1.02199
+MONSANTO|    1.31083***      .14353     9.13  .0000     1.02950   1.59215
+     SFC|    1.44056***      .10262    14.04  .0000     1.23943   1.64168
+  PUBLIC|    -.01650         .07543     -.22  .8268     -.16434    .13134
+   SEEDS|     .54114***      .05394    10.03  .0000      .43542    .64685
+  CDPROD|     .01680***      .00074    22.71  .0000      .01535    .01825
+ CDPRICE|    -.02212***      .00195   -11.33  .0000     -.02595   -.01829
+ TECHPRI|     .03569***      .00386     9.25  .0000      .02812    .04326
+  NEPPRI|    -.00293*        .00169    -1.73  .0830     -.00623    .00038
+--------+--------------------------------------------------------------------
+Note: ***, **, * ==>  Significance at 1%, 5%, 10% level.
+-----------------------------------------------------------------------------
+
+|-> reset$
+|-> import; file="E:\GM Project copy\Choice Experiment\US\US_emotional.csv"$
+Last observation read from data file was   11502
+Error    535: Warning: Name Q7_1_VIT was in use. Replaced with X89
+Error    535: Warning: Name Q11_10_6 was in use. Replaced with X123
+Error    535: Warning: Name LOCATION was in use. Replaced with X125
+Error    535: Warning: Name LOCATION was in use. Replaced with X126
+|-> create; CDProd = total_CD * producer$
+|-> create; CDPrice = total_CD * price$
+|-> create; TechPri= total_te * price$
+|-> create; NepPri= total_ne * price$
+|-> create; monsanto=producer=1$
+|-> create; sfc=producer=2$
+|-> create; public=producer=3$
+|-> nlogit; lhs=choice
+    	; choices= a,b,c
+    	; rhs=price, monsanto,sfc,public, seeds, CDProd, cdprice, techpri,neppri $
+
++------------------------------------------------------+
+|WARNING:   Bad observations were found in the sample. |
+|Found 150 bad observations among    3834 individuals. |
+|You can use ;CheckData to get a list of these points. |
++------------------------------------------------------+
+
+Normal exit:   5 iterations. Status=0, F=    3404.710
+
+-----------------------------------------------------------------------------
+Discrete choice (multinomial logit) model
+Dependent variable               Choice
+Log likelihood function     -3404.71018
+Estimation based on N =   3684, K =   9
+Inf.Cr.AIC  =   6827.4 AIC/N =    1.853
+Model estimated: Oct 31, 2016, 15:14:56
+R2=1-LogL/LogL* Log-L fncn R-sqrd R2Adj
+Constants only  -4013.7778  .1517 .1507
+Response data are given as ind. choices
+Number of obs.=  3834, skipped  150 obs
+--------+--------------------------------------------------------------------
+        |                  Standard            Prob.      95% Confidence
+  CHOICE|  Coefficient       Error       z    |z|>Z*         Interval
+--------+--------------------------------------------------------------------
+   PRICE|    -.84952***      .16248    -5.23  .0000    -1.16798   -.53107
+MONSANTO|    1.28414***      .14398     8.92  .0000     1.00195   1.56634
+     SFC|    1.45978***      .10220    14.28  .0000     1.25948   1.66008
+  PUBLIC|    -.14457*        .07543    -1.92  .0553     -.29241    .00328
+   SEEDS|     .49004***      .05302     9.24  .0000      .38611    .59396
+  CDPROD|     .01723***      .00075    23.08  .0000      .01577    .01869
+ CDPRICE|    -.02943***      .00202   -14.59  .0000     -.03338   -.02548
+ TECHPRI|     .03209***      .00376     8.54  .0000      .02472    .03945
+  NEPPRI|    -.00122         .00175     -.70  .4865     -.00464    .00221
+--------+--------------------------------------------------------------------
+Note: ***, **, * ==>  Significance at 1%, 5%, 10% level.
+-----------------------------------------------------------------------------
+
+|-> reset$
+|-> import; file="E:\GM Project copy\Choice Experiment\US\US_simple.csv"$
+Last observation read from data file was   11313
+Error    535: Warning: Name Q7_1_VIT was in use. Replaced with X89
+Error    535: Warning: Name Q11_10_6 was in use. Replaced with X123
+Error    535: Warning: Name LOCATION was in use. Replaced with X125
+Error    535: Warning: Name LOCATION was in use. Replaced with X126
+|-> create; CDProd = total_CD * producer$
+|-> create; CDPrice = total_CD * price$
+|-> create; TechPri= total_te * price$
+|-> create; NepPri= total_ne * price$
+|-> create; monsanto=producer=1$
+|-> create; sfc=producer=2$
+|-> create; public=producer=3$
+|-> nlogit; lhs=choice
+    	; choices= a,b,c
+    	; rhs=price, monsanto,sfc,public, seeds, CDProd, cdprice, techpri,neppri $
+
++------------------------------------------------------+
+|WARNING:   Bad observations were found in the sample. |
+|Found  81 bad observations among    3771 individuals. |
+|You can use ;CheckData to get a list of these points. |
++------------------------------------------------------+
+
+Normal exit:   6 iterations. Status=0, F=    3428.195
+
+-----------------------------------------------------------------------------
+Discrete choice (multinomial logit) model
+Dependent variable               Choice
+Log likelihood function     -3428.19451
+Estimation based on N =   3690, K =   9
+Inf.Cr.AIC  =   6874.4 AIC/N =    1.863
+Model estimated: Oct 31, 2016, 15:15:16
+R2=1-LogL/LogL* Log-L fncn R-sqrd R2Adj
+Constants only  -4022.9585  .1478 .1468
+Response data are given as ind. choices
+Number of obs.=  3771, skipped   81 obs
+--------+--------------------------------------------------------------------
+        |                  Standard            Prob.      95% Confidence
+  CHOICE|  Coefficient       Error       z    |z|>Z*         Interval
+--------+--------------------------------------------------------------------
+   PRICE|   -1.28511***      .17946    -7.16  .0000    -1.63685   -.93338
+MONSANTO|    1.39636***      .14267     9.79  .0000     1.11672   1.67599
+     SFC|    1.53579***      .10290    14.93  .0000     1.33411   1.73747
+  PUBLIC|    -.09451         .07627    -1.24  .2152     -.24399    .05496
+   SEEDS|     .61278***      .05453    11.24  .0000      .50591    .71965
+  CDPROD|     .01751***      .00074    23.54  .0000      .01605    .01897
+ CDPRICE|    -.02508***      .00191   -13.11  .0000     -.02883   -.02133
+ TECHPRI|     .02485***      .00387     6.43  .0000      .01727    .03242
+  NEPPRI|     .00072         .00182      .40  .6928     -.00286    .00430
+--------+--------------------------------------------------------------------
+Note: ***, **, * ==>  Significance at 1%, 5%, 10% level.
+-----------------------------------------------------------------------------
+
+|-> reset$
+|-> import; file="E:\GM Project copy\Choice Experiment\US\US_benefit.csv"$
+Last observation read from data file was   11070
+Error    535: Warning: Name Q7_1_VIT was in use. Replaced with X89
+Error    535: Warning: Name Q11_10_6 was in use. Replaced with X123
+Error    535: Warning: Name LOCATION was in use. Replaced with X125
+Error    535: Warning: Name LOCATION was in use. Replaced with X126
+|-> create; CDProd = total_CD * producer$
+|-> create; CDPrice = total_CD * price$
+|-> create; TechPri= total_te * price$
+|-> create; NepPri= total_ne * price$
+|-> create; monsanto=producer=1$
+|-> create; sfc=producer=2$
+|-> create; public=producer=3$
+|-> nlogit; lhs=choice
+    	; choices= a,b,c
+    	; rhs=price, monsanto,sfc,public, seeds, CDProd, cdprice, techpri,neppri $
+
++------------------------------------------------------+
+|WARNING:   Bad observations were found in the sample. |
+|Found  80 bad observations among    3690 individuals. |
+|You can use ;CheckData to get a list of these points. |
++------------------------------------------------------+
+
+Normal exit:   5 iterations. Status=0, F=    3388.982
+
+-----------------------------------------------------------------------------
+Discrete choice (multinomial logit) model
+Dependent variable               Choice
+Log likelihood function     -3388.98230
+Estimation based on N =   3610, K =   9
+Inf.Cr.AIC  =   6796.0 AIC/N =    1.883
+Model estimated: Oct 31, 2016, 15:15:35
+R2=1-LogL/LogL* Log-L fncn R-sqrd R2Adj
+Constants only  -3956.5194  .1434 .1424
+Response data are given as ind. choices
+Number of obs.=  3690, skipped   80 obs
+--------+--------------------------------------------------------------------
+        |                  Standard            Prob.      95% Confidence
+  CHOICE|  Coefficient       Error       z    |z|>Z*         Interval
+--------+--------------------------------------------------------------------
+   PRICE|    -.62738***      .15844    -3.96  .0001     -.93791   -.31684
+MONSANTO|    1.14320***      .14654     7.80  .0000      .85599   1.43042
+     SFC|    1.25162***      .10403    12.03  .0000     1.04773   1.45551
+  PUBLIC|    -.23439***      .07796    -3.01  .0026     -.38720   -.08159
+   SEEDS|     .50207***      .05537     9.07  .0000      .39355    .61059
+  CDPROD|     .01644***      .00076    21.61  .0000      .01495    .01793
+ CDPRICE|    -.03202***      .00200   -16.03  .0000     -.03594   -.02811
+ TECHPRI|     .01701***      .00379     4.48  .0000      .00957    .02445
+  NEPPRI|     .00241         .00172     1.40  .1602     -.00096    .00579
+--------+--------------------------------------------------------------------
+Note: ***, **, * ==>  Significance at 1%, 5%, 10% level.
+-----------------------------------------------------------------------------
+
+|-> reset$
+|-> import; file="E:\GM Project copy\Choice Experiment\US\US_control.csv"$
+Last observation read from data file was   11070
+Error    535: Warning: Name Q7_1_VIT was in use. Replaced with X89
+Error    535: Warning: Name Q11_10_6 was in use. Replaced with X123
+Error    535: Warning: Name LOCATION was in use. Replaced with X125
+Error    535: Warning: Name LOCATION was in use. Replaced with X126
+|-> create; CDProd = total_CD * producer$
+|-> create; CDPrice = total_CD * price$
+|-> create; TechPri= total_te * price$
+|-> create; NepPri= total_ne * price$
+|-> create; monsanto=producer=1$
+|-> create; sfc=producer=2$
+|-> create; public=producer=3$
+|-> nlogit; lhs=choice
+    	; choices= a,b,c
+    	; rhs=price, monsanto,sfc,public, seeds, CDProd, cdprice, techpri,neppri $
+
++------------------------------------------------------+
+|WARNING:   Bad observations were found in the sample. |
+|Found  78 bad observations among    3690 individuals. |
+|You can use ;CheckData to get a list of these points. |
++------------------------------------------------------+
+
+Normal exit:   5 iterations. Status=0, F=    3298.191
+
+-----------------------------------------------------------------------------
+Discrete choice (multinomial logit) model
+Dependent variable               Choice
+Log likelihood function     -3298.19054
+Estimation based on N =   3612, K =   9
+Inf.Cr.AIC  =   6614.4 AIC/N =    1.831
+Model estimated: Oct 31, 2016, 15:15:55
+R2=1-LogL/LogL* Log-L fncn R-sqrd R2Adj
+Constants only  -3947.4346  .1645 .1634
+Response data are given as ind. choices
+Number of obs.=  3690, skipped   78 obs
+--------+--------------------------------------------------------------------
+        |                  Standard            Prob.      95% Confidence
+  CHOICE|  Coefficient       Error       z    |z|>Z*         Interval
+--------+--------------------------------------------------------------------
+   PRICE|   -1.74199***      .18406    -9.46  .0000    -2.10274  -1.38125
+MONSANTO|     .73488***      .14939     4.92  .0000      .44208   1.02768
+     SFC|     .91415***      .10404     8.79  .0000      .71024   1.11806
+  PUBLIC|    -.60889***      .08084    -7.53  .0000     -.76734   -.45045
+   SEEDS|     .45614***      .05539     8.24  .0000      .34759    .56470
+  CDPROD|     .01561***      .00078    20.08  .0000      .01409    .01714
+ CDPRICE|    -.02907***      .00205   -14.21  .0000     -.03308   -.02506
+ TECHPRI|     .04629***      .00402    11.51  .0000      .03840    .05417
+  NEPPRI|     .00870***      .00183     4.76  .0000      .00512    .01228
+--------+--------------------------------------------------------------------
+Note: ***, **, * ==>  Significance at 1%, 5%, 10% level.
+-----------------------------------------------------------------------------
+
